@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Navbar with Sidebar</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            overflow-x: hidden;
+        }
+        .logo-img {
+            width: 150px;
+            margin-bottom: -15px;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 15px;
+            background-color: #fff;
+            border-bottom: 1px solid #ddd;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+        }
+        .navbar .menu-icon,
+        .navbar .love-icon {
+            font-size: 24px;
+            cursor: pointer;
+            color: black;
+        }
+        .navbar .logo {
+            font-size: 20px;
+            font-weight: bold;
+            color: black;
+            text-align: center;
+            flex-grow: 1;
+        }
+        .navbar .love-icon {
+            margin-right: 20px; /* Move the love icon more to the left */
+        }
+        .sidebar {
+            height: 100%;
+            width: 250px;
+            position: fixed;
+            top: 0;
+            left: -250px;
+            background-color: white;
+            padding-top: 60px;
+            transition: 0.3s;
+            z-index: 1001;
+        }
+        .sidebar.active {
+            left: 0;
+        }
+        .sidebar a {
+            padding: 15px 20px;
+            text-decoration: none;
+            font-size: 18px;
+            color: black;
+            display: block;
+            transition: 0.3s;
+        }
+        .sidebar a:hover {
+            background-color: grey;
+            color: #fff;
+        }
+        h3 {
+            margin-top: -60px;
+            margin-bottom: 0px;
+            padding: 15px 20px;
+            text-decoration: none;
+        }
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: none;
+            z-index: 1000;
+        }
+        .overlay.active {
+            display: block;
+        }
+        .spanduk-img {
+            width: 100%;
+            margin-top: 40px;
+        }
+
+
+        .container {
+            text-align: center;
+        }
+
+        .icons {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .icon {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0 15px;
+        }
+
+        .icon img {
+            width: 60px;
+            height: 60px;
+            margin-bottom: 10px;
+        }
+
+        .icon p {
+            margin: 0;
+            font-size: 14px;
+        }
+
+        h1 {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        /* Adding icons using Font Awesome for representation purposes */
+        .icon i {
+            font-size: 40px;
+            color: black;
+            margin-bottom: 10px;
+        }
+        hr {
+            width: 30%;
+            margin-bottom: 50px;
+        }
+        @media (max-width: 600px) {
+            .navbar .logo {
+                font-size: 18px;
+            }
+            .navbar .menu-icon,
+            .navbar .love-icon {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="navbar">
+    <span class="menu-icon" onclick="toggleMenu()">☰</span>
+    <span class="logo"> <img src="logo.png" alt="" srcset="" class="logo-img"></span>
+    <span class="love-icon">❤</span>
+</div>
+
+<div class="sidebar" id="sidebar">
+    <h3><img src="logo.png" alt="" srcset="" class="logo-img" style="margin-top: -6px;"></h3>
+    <a href="#">Home</a>
+    <a href="#">Wanita</a>
+    <a href="#">Pria</a>
+    <a href="#">Anak</a>
+    <a href="#">Unisex</a>
+    <a href="#">Shopee</a>
+    <a href="#">Tokopedia</a>
+    <a href="#">WA</a>
+</div>
+
+<div class="overlay" id="overlay" onclick="toggleMenu()"></div>
+<div class="spanduk">
+    <img src="spanduk.png" alt="" srcset="" class="spanduk-img">
+</div>
+<hr>
+<div class="container">
+    <div class="icons">
+        <div class="icon">
+            <img src="fb.png" class="fas fa-gift"></i>
+            <p>Special Perks</p>
+        </div>
+        <div class="icon">
+            <img src="ig.png" class="fas fa-star"></i>
+            <p>Comm HL</p>
+        </div>
+        <div class="icon">
+            <img src="x.png" class="fas fa-tshirt"></i>
+            <p>Style Inspo</p>
+        </div>
+        <div class="icon">
+            <img src="wa.png" class="fas fa-question-circle"></i>
+            <p>FAQ</p>
+        </div>
+        <div class="icon">
+            <img src="tt.png" class="fas fa-heart"></i>
+            <p>Shop Favs</p>
+        </div>
+    </div>
+    <h1>🌟 Exclusive Perks & Privileges 🌟</h1>
+</div>
+
+<script>
+    function toggleMenu() {
+        var sidebar = document.getElementById('sidebar');
+        var overlay = document.getElementById('overlay');
+        sidebar.classList.toggle('active');
+        overlay.classList.toggle('active');
+    }
+</script>
+
+</body>
+</html>
